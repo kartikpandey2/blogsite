@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var bcrypt   = require('bcrypt-nodejs');
 var mongoose = require('mongoose');
 var Mongostore = require('connect-mongo')(session);
+var port=process.env.PORT || 3000;
 const saltRounds = 10;
 //middleware
 app.use(bodyParser.json());
@@ -173,8 +174,8 @@ app.get('/feed',isLoggedIn,function(req,res){
 })
 
 //server listening
-app.listen(3000,function(){
-	console.log('Server is running at port:3000');
+app.listen(port,function(){
+	console.log(`Server is running at port:${port}`);
 });
 
 //function
