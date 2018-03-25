@@ -9,6 +9,8 @@ var bcrypt   = require('bcrypt-nodejs');
 var mongoose = require('mongoose');
 var Mongostore = require('connect-mongo')(session);
 var port=process.env.PORT || 3000;
+var dbURL=process.env.MONGODB_URI || 'mongodb://localhost/intern_database';
+
 const saltRounds = 10;
 //middleware
 app.use(bodyParser.json());
@@ -16,7 +18,7 @@ app.use(session(
 {
 secret:'iamkartik',
 store: new Mongostore(
-{url:'mongodb://localhost/intern_database',
+{url:dbURL,
 ttl:14*24*60*60}),
 resave: false ,
 saveUninitialized: false
