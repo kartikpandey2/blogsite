@@ -13,17 +13,20 @@ mongoose.connect('mongodb://localhost/intern_database',function(err){
 
 var reg_schema = mongoose.Schema({
 Local:{
-		FirstName : {type: String},
-		LastName :{type : String},
-		Username    :{type : String},
-		Password :{type : String},
-		Follow  :[{
-					name:{type:String}
-				  }],
-		Article:[{
-	 		Title:{type:String},
-	 		Content:{type:String}
-	 		}]
+		FirstName 	: {type: String},
+		LastName 	:{type : String},
+		Username    :{type : String,
+						unique:true},
+		Password 	:{type : String},
+		BlogUrl 	: { type:String,
+						unique:true},
+		Follow  	:[{
+						name:{type:String}
+				    }],
+		Article:  	[{
+				 		Title:{type:String},
+				 		Content:{type:String}
+				 	}]
  	}
 })
 
