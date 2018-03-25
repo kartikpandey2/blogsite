@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost/intern_database',function(err){
+var dbURL=process.env.MONGODB_URI || 'mongodb://localhost/intern_database';
+mongoose.connect(dbURL,function(err){
 	if(err)
 	{
 		console.log(err);
